@@ -21,15 +21,20 @@ class HabitationList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title:
-              Text("Liste des ${this.isHouseList ? 'maisons' : 'apprtements'}"),
+          title: Text(
+            "Liste des ${this.isHouseList ? 'maisons' : 'appartements'}",
+            style: TextStyle(
+              color: Colors.white70, // Couleur du texte en bleu
+            ),
+          ),
+          backgroundColor: Colors.blue,
         ),
         body: Center(
             child: ListView.builder(
           itemCount: _habitations.length,
           itemBuilder: (context, index) =>
               _buildRow(_habitations[index], context),
-          itemExtent: 330,
+          itemExtent: 285,
         )));
   }
 

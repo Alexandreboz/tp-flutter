@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:td/share/location_style.dart';
+import 'package:td/views/resa_location.dart';
 import 'package:td/views/share/habitation_features_widget.dart';
 import 'package:td/views/share/habitation_option.dart';
 import '../models/habitation.dart';
@@ -21,7 +22,13 @@ class _HabitationDetailsState extends State<HabitationDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget._habitation.libelle),
+        title: Text(
+          widget._habitation.libelle,
+          style: TextStyle(
+            color: Colors.white70, // Couleur du texte en bleu
+          ),
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: ListView(
         padding: EdgeInsets.all(4.0),
@@ -153,23 +160,23 @@ class _HabitationDetailsState extends State<HabitationDetails> {
         borderRadius: BorderRadius.circular(8.0),
       ),
       margin: EdgeInsets.all(8.0),
-      child: Row(
+      child: Row (
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             margin: EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               format.format(widget._habitation.prixmois),
-              style: TextStyle(
-                color: Colors.white, // Couleur du texte en blanc
-              ),
             ),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 8.0),
             child: ElevatedButton(
               onPressed: () {
-                print('Louer habitation');
+                //Navigator.push(
+                  //context,
+                  //MaterialPageRoute(builder: (context) => ResaLocation()),
+                //);
               },
               child: Text('Louer'),
             ),
@@ -178,7 +185,6 @@ class _HabitationDetailsState extends State<HabitationDetails> {
       ),
     );
   }
-
 
 
 }
