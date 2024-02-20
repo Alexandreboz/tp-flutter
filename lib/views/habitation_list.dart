@@ -34,7 +34,7 @@ class HabitationList extends StatelessWidget {
           itemCount: _habitations.length,
           itemBuilder: (context, index) =>
               _buildRow(_habitations[index], context),
-          itemExtent: 285,
+          itemExtent: 320,
         )));
   }
 
