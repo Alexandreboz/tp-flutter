@@ -1,6 +1,6 @@
 # TDs Flutter
 
-Un projet flutter sur la location de voitures
+Un projet flutter sur l'achat et la location de maison et appartements
 
 ## Getting Started
 
