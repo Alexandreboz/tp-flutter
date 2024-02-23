@@ -8,7 +8,6 @@ import 'package:td/views/share/habitation_option.dart';
 import '../models/habitation.dart';
 
 class HabitationDetails extends StatefulWidget {
-
   final Habitation _habitation;
 
   const HabitationDetails(this._habitation, {Key? key}) : super(key: key);
@@ -47,8 +46,8 @@ class _HabitationDetailsState extends State<HabitationDetails> {
           HabitationFeaturesWidget(widget._habitation),
           _buildItems(),
           _buildOptionsPayantes(),
-          _buildRentButton(),
-            ],
+          _buildRentButton(widget._habitation.adresse), // Modification ici
+        ],
       ),
     );
   }
@@ -101,7 +100,6 @@ class _HabitationDetailsState extends State<HabitationDetails> {
     );
   }
 
-
   _buildOptionsPayantes() {
     var width = (MediaQuery.of(context).size.width / 2) - 15;
 
@@ -150,8 +148,8 @@ class _HabitationDetailsState extends State<HabitationDetails> {
     );
   }
 
-
-  _buildRentButton() {
+  _buildRentButton(String adresseMaison) {
+    // Modification ici
     var format = NumberFormat('### €');
 
     return Container(
@@ -160,7 +158,7 @@ class _HabitationDetailsState extends State<HabitationDetails> {
         borderRadius: BorderRadius.circular(8.0),
       ),
       margin: EdgeInsets.all(8.0),
-      child: Row (
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
@@ -173,10 +171,13 @@ class _HabitationDetailsState extends State<HabitationDetails> {
             margin: EdgeInsets.symmetric(horizontal: 8.0),
             child: ElevatedButton(
               onPressed: () {
-                //Navigator.push(
-                  //context,
-                  //MaterialPageRoute(builder: (context) => ResaLocation()),
-                //);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResaLocation(
+                          adresseMaison: widget._habitation.adresse,
+                          prixMaison: widget._habitation.prixmois)),
+                );
               },
               child: Text('Louer'),
             ),
@@ -185,6 +186,4 @@ class _HabitationDetailsState extends State<HabitationDetails> {
       ),
     );
   }
-
-
 }
