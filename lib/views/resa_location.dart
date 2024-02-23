@@ -41,7 +41,7 @@ class _ResaLocationState extends State<ResaLocation> {
   String nbPersonnes = '1';
   List<OptionPayanteCheck> optionPayanteChecks = [];
   var format = NumberFormat("###,### €");
-  double prixTotal = 600.0; // Assuming a base price
+  late double prixTotal; // Prix total défini plus tard dans le code
 
   void _loadOptionPayantes() {
     optionPayanteChecks = [
@@ -55,6 +55,7 @@ class _ResaLocationState extends State<ResaLocation> {
   void initState() {
     super.initState();
     _loadOptionPayantes();
+    prixTotal = widget.prixMaison; // Initialisation du prix total
   }
 
   @override
