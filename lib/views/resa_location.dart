@@ -22,9 +22,13 @@ class OptionPayanteCheck extends OptionPayante {
 class ResaLocation extends StatefulWidget {
   final String adresseMaison;
   final double prixMaison;
+  final String libelleHabitation; // Ajout du libellé
 
   const ResaLocation(
-      {Key? key, required this.adresseMaison, required this.prixMaison})
+      {Key? key,
+      required this.adresseMaison,
+      required this.prixMaison,
+      required this.libelleHabitation})
       : super(key: key);
 
   @override
@@ -80,7 +84,7 @@ class _ResaLocationState extends State<ResaLocation> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Maison",
+            widget.libelleHabitation, // Utilisation du libellé
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 4),

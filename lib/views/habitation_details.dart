@@ -171,13 +171,17 @@ class _HabitationDetailsState extends State<HabitationDetails> {
             margin: EdgeInsets.symmetric(horizontal: 8.0),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ResaLocation(
-                          adresseMaison: widget._habitation.adresse,
-                          prixMaison: widget._habitation.prixmois)),
-                );
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => ResaLocation(
+      adresseMaison: widget._habitation.adresse,
+      prixMaison: widget._habitation.prixmois,
+      libelleHabitation: widget._habitation.libelle, // Ajout du libellé
+    ),
+  ),
+);
+
               },
               child: Text('Louer'),
             ),
